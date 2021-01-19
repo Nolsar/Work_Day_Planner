@@ -36,23 +36,36 @@ var hour5 = $("#17");
 
 
 //function that changes color to red when it is in the past & blue current & green future;
-              
+
 
 
 // WHEN I click into a time block
+var saveBtn = $(".saveBtn");
 
+saveBtn.on("click", function () {
+        var time = $(this).parent().attr("id");
+        var schedule = $(this).siblings(".schedule").val();
+        // THEN I can enter an event and the text is saved in local storage
+        localStorage.setItem(time, schedule);
+});
 
-// THEN I can enter an event
+// WHEN I refresh the page, THEN the saved events persist
+function setPlanner() {
+        $(".time-block").each(function () {
+                var id = $(this).attr("id");
+                var schedule = localStorage.getItem(id);
 
-        //allows input of an event
+                if (schedule !== null) {
+                        $(this).children(".schedule").val(schedule);
+                }
+        });
+}
+setPlanner();
 
-// WHEN I click the save button for that time block
-
-        //save the input to the schedule
 
 // THEN the text for that event is saved in local storage
 
-        // text is saved in local storgare
+
 
 // WHEN I refresh the page
 // THEN the saved events persist
