@@ -9,38 +9,25 @@ var hour3 = $("#15");
 var hour4 = $("#16");
 var hour5 = $("#17");
 
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-
-let [month, date, year] = new Date().toLocaleDateString("en-US").split("/");
-console.log(new Date);
-
-        //need to add date to html
+// WHEN I open the planner, the current day is displayed at the top of the calendar
 
 
+var monthNames = [
+        "January", "February", "March",
+        "April", "May", "June",
+        "July", "August", "September",
+        "October", "November", "December"
+];
 
-    
+var days = [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+//test function in console
+// console.log(days[(new Date()).getMonth()] + "," + ' ' + monthNames[(new Date()).getMonth()] + " " + (new Date()).getDate());
 
-        //***time object
-        // var mons = ["Jan", "Feb", "Mar"];
-        // mons[(new Date()).getMonth()]
-
-        // "Jan"
-
-        // var days = ["Sunday", "Monday", "Tuesday"];
-        // days[(new Date()).getDay()]
-
-        // "Tuesday"
-
-        // if(i === 12){
-        //     chosenTag.css(["background-color", "red"]);
-        //     chosenTag.addClass("red-class");
-        // }
-        // if((new Date()).getHours() === i){ // uses military time 0-23 for hours
-        //     chosenTag.addClass("red-class");
-        // }
+//current date displayed at the top of page
+var date = days[(new Date()).getMonth()] + "," + ' ' + monthNames[(new Date()).getMonth()] + " " + (new Date()).getDate();
+$("#currentDay").text(date);
 
 // WHEN I scroll down
 // THEN I am presented with time blocks for standard business hours
