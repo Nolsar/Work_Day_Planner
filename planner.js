@@ -20,16 +20,26 @@ $("#currentDay").text(date);
 var currentHour = new Date();
 console.log(currentHour.getHours());
 
-// variables
-var hour9 = $("#9");
-var hour10 = $("#10");
-var hour11 = $("#11");
-var hour12 = $("#12");
-var hour1 = $("#13");
-var hour2 = $("#14");
-var hour3 = $("#15");
-var hour4 = $("#16");
-var hour5 = $("#17");
+
+
+function pastPresentFuture() {
+        hour = currentHour.getHours();
+        $(".time-block").each(function () {
+            var thisHour = parseInt($(this).attr("id"));
+    
+            if (thisHour > hour) {
+                $(this).addClass("future")
+            }
+            else if (thisHour === hour) {
+                $(this).addClass("present");
+            }
+            else {
+                $(this).addClass("past");
+            }
+        })
+    }
+    
+    pastPresentFuture();
 
 // WHEN I view the time blocks for that day, THEN each time block is color-coded to indicate whether it is in the past, present, or future
 
